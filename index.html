@@ -167,6 +167,10 @@ header {
   z-index: 1000;
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
+  transition: transform 0.3s ease-in-out; 
+}
+.header-hidden {
+  transform: translateY(-100%);
 }
 .brand { display: flex; align-items: center; gap: 15px; margin-left: 20px; /* Added left margin for spacing */ }
 .logo {
@@ -858,6 +862,58 @@ footer a { color: var(--accent-color); }
   .wa-btn { width: 55px; height: 55px; font-size: 24px; }
   .wa-btn img { width: 24px; height: 24px; }
 }
+/* =========================================
+   FIX FOR SLIDER IMAGE HEIGHT
+   ========================================= */
+
+/* 1. Reset the "padding hack" and set a maximum height */
+.auto-slider .slide {
+  padding-bottom: 0 !important;   /* distinct height calculation */
+  height: 60vh !important;        /* Height will be 60% of the screen height */
+  max-height: 550px !important;   /* Never taller than 550px */
+  min-height: 300px !important;   /* Never shorter than 300px */
+}
+
+/* 2. Adjust specifically for Mobile Phones */
+@media (max-width: 767px) {
+  .auto-slider .slide {
+    height: 350px !important;     /* Fixed comfortable height for mobile */
+  }
+}
+/* =========================================
+   SHOW FULL IMAGE (NO CROPPING)
+   ========================================= */
+.slide img {
+  /* 'contain' forces the whole image to fit inside the box */
+  object-fit: contain !important; 
+  
+  /* Optional: Adds a dark background for the empty space on sides */
+  background-color: #f8f9fa; 
+}
+/* =========================================
+   MOVE DOTS BELOW IMAGE
+   ========================================= */
+
+/* 1. Stop the dots from floating on top of the image */
+.slider-controls {
+  position: relative !important;  /* detailed positioning */
+  bottom: auto !important;        /* Remove bottom alignment */
+  margin-top: 10px;               /* Add space between image and dots */
+  padding-bottom: 20px;           /* Add space at the bottom of the card */
+}
+
+/* 2. Change dots to Dark Grey (so they can be seen on white background) */
+.slider-dot {
+  background: #bdc3c7 !important; /* Grey color */
+  border: 1px solid #bdc3c7 !important;
+}
+
+/* 3. Keep the Active Dot Red (Primary Color) */
+.slider-dot.active {
+  background: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  transform: scale(1.3);          /* Make active dot slightly larger */
+}
   </style>
 </head>
 <body>
@@ -1101,6 +1157,24 @@ footer a { color: var(--accent-color); }
 <section class="section gallery-section" aria-labelledby="gallery-title" id="gallery">
   <h2 id="gallery-title" class="section-title">Project Gallery</h2>
   <div class="gallery-grid" role="list">
+    <div class="gallery-item" role="listitem"><img src="11.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="12.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="13.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="14.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="15.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="16.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="17.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="18.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="19.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="20.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="21.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="22.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="23.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="24.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="25.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="26.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="27.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="28.jpeg" alt="Gallery image 1"></div>
     <div class="gallery-item" role="listitem"><img src="1.jpeg" alt="Gallery image 1"></div>
     <div class="gallery-item" role="listitem"><img src="2.jpeg" alt="Gallery image 2"></div>
     <div class="gallery-item" role="listitem"><img src="3.jpeg" alt="Gallery image 3"></div>
@@ -1110,6 +1184,17 @@ footer a { color: var(--accent-color); }
     <div class="gallery-item" role="listitem"><img src="7.jpeg" alt="Gallery image 7"></div>
     <div class="gallery-item" role="listitem"><img src="8.jpeg" alt="Gallery image 8"></div>
     <div class="gallery-item" role="listitem"><img src="9.jpeg" alt="Gallery image 9"></div>
+	<div class="gallery-item" role="listitem"><img src="29.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="30.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="31.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="32.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="33.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="34.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="35.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="36.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="37.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="38.jpeg" alt="Gallery image 1"></div>
+	<div class="gallery-item" role="listitem"><img src="39.jpeg" alt="Gallery image 1"></div>
   </div>
 </section>
 
@@ -1437,7 +1522,35 @@ Sahan Colombage - 070 315 0742</p>
         }
       });
     })();
+	
+	/* =========================================
+     HIDE HEADER ON SCROLL SCRIPT
+     ========================================= */
+  let lastScrollTop = 0;
+  const header = document.querySelector('header');
+
+  window.addEventListener('scroll', function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Prevent hiding if at the very top of the page
+    if (scrollTop <= 0) {
+      header.classList.remove('header-hidden');
+      lastScrollTop = scrollTop;
+      return;
+    }
+
+    if (scrollTop > lastScrollTop) {
+      // Scrolling DOWN -> Hide Header
+      header.classList.add('header-hidden');
+    } else {
+      // Scrolling UP -> Show Header
+      header.classList.remove('header-hidden');
+    }
+    
+    lastScrollTop = scrollTop;
+  });
   </script>
 
 </body>
+
 </html>
